@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="smoke_HD" verbose="1" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
+    </listeners>
+    <test name="mobile_e2e_smoke_tests">
+        <classes>
+            <class name="com.qa.test.common.smoke.LoginTest"/>
+        </classes>
+    </test>
+</suite>
