@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tech.qa</groupId>
+    <artifactId>mobile</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <properties>
+        <aspectj.version>1.9.4</aspectj.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>agent-java-testng</artifactId>
+            <version>5.0.11</version>
+        </dependency>
+        <!-- TODO Leave only one dependency, depends on what logger you use: -->
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-logback</artifactId>
+            <version>5.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.epam.reportportal</groupId>
+            <artifactId>logger-java-log4j</artifactId>
+            <version>5.0.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hamcrest/java-hamcrest -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>java-hamcrest</artifactId>
+            <version>2.0.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20140107</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>regressionui</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                        <configuration>
+                            <!-- For nested steps only -->
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                            <testFailureIgnore>false</testFailureIgnore>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>./src/test/${suite}.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                            <forkMode>never</forkMode>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectj.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

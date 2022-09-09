@@ -1,0 +1,7 @@
+/.idea/*
+*.iml
+/*.DS_Store/
+../.idea/
+.DS_Store
+*/test-output/*
+target/*
