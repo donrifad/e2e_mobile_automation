@@ -97,7 +97,7 @@ run.mode=remote_head_spin
 
 <h3>ios/android head spin configurations</h3>
 Ios configurations you can change the  device id  here
-```
+````
 ios.head.spin.device.udid=00008101-00144C3E21grgrg98001E
 
 
@@ -110,10 +110,10 @@ ios.version=14
 install.ios_app.headspin=false
 
 ios.device=iPhone 12
-```
+````
 
 #### Android configurations
-```
+````
 device=SM-G991U1
 
 os_version=11
@@ -121,7 +121,7 @@ os_version=11
 android.head.spin.device.udid=R3CNggrgrgC082X5Y
 
 android.head.spin.device=SM-G991U1
-```
+````
 
 <h2> Reporting </h2>
 
@@ -130,7 +130,7 @@ android.head.spin.device=SM-G991U1
 <br> Open the report portal.properties and provide your configuration details </br>
 <br> Report portal dependencies are added these attributes coming from report portal </br>
 <br> Report portal lisnter is added in smoke.xml file </br>
-```
+````
 
     @TestCaseId("C58280,C58293")
     @Attributes(attributes = {@Attribute(key = "suite", value = "Smoke shared"),
@@ -138,6 +138,6 @@ android.head.spin.device=SM-G991U1
             @Attribute(key = "priority", value = "High")})
     @Test(priority = 1)
     public void testUserIsAbleToLoginWithoutAnyIssues()
-```
+````
 
 
