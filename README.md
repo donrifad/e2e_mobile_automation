@@ -96,7 +96,7 @@ run.mode=remote_head_spin
 ```
 
 <h3>ios/android head spin configurations</h3>
-Ios configurations you can change the  device id  here
+<br>Ios configurations you can change the  device id  here</br>
 ````
 ios.head.spin.device.udid=00008101-00144C3E21grgrg98001E
 
