@@ -97,7 +97,8 @@ run.mode=remote_head_spin
 
 <h3>ios/android head spin configurations</h3>
 <br>Ios configurations you can change the  device id  here</br>
-````
+
+```
 ios.head.spin.device.udid=00008101-00144C3E21grgrg98001E
 
 
@@ -110,7 +111,7 @@ ios.version=14
 install.ios_app.headspin=false
 
 ios.device=iPhone 12
-````
+```
 
 #### Android configurations
 ````
