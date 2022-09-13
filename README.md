@@ -133,7 +133,7 @@ android.head.spin.device=SM-G991U1
 <br> Report portal lisnter is added in smoke.xml file </br>
 ````
 
-    @TestCaseId("C58280,C58293")
+    @TestCaseId("A5,B5")
     @Attributes(attributes = {@Attribute(key = "suite", value = "Smoke shared"),
             @Attribute(key = "feature", value = "Logging in,Logging out"),
             @Attribute(key = "priority", value = "High")})
